@@ -1,0 +1,26 @@
+call simple.system.System
+call "../src/NgBanks.sim"
+
+block main()
+  bank = new NgBanks
+
+  // Get All Banks
+  @ bank.getBanks()
+
+  sleep(10000)
+  
+  // Get A certain Bank - Guarantee Trust Bank
+  @ "==================================================="
+  @ bank.getBank('GTB')
+
+    sleep(10000)
+
+  // Add A New Bank
+  @ "==================================================="
+  @ bank.addBank('Bank of the Future', 427, 'BOF', '*404#')
+
+  sleep(10000)
+
+  // Throw Bank Already Exist Exception !
+  @ "==================================================="
+  @ bank.addBank('Bank of the Future', 427, 'BOF', '*404#')
