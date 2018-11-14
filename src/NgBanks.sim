@@ -1,0 +1,64 @@
+call simple.debugging.Throw
+call simple.core.String
+call simple.core.List
+
+module NgBanks
+
+/*
+ * @author -  Abdulazeez Abdulazeez Adeshina
+*/
+
+class NgBanks
+
+  block getBanks()
+    return this.banks
+
+  block getBank(param)
+    param_type = :slug
+    if (isNumber(param)) {
+      param_type = :code
+    }
+
+    for bank in this.banks {
+      if (bank[param_type] == param){ 
+        return bank
+      }
+    }
+    return null
+  end
+
+  block addBank(name, code, slug, ussd_code)
+    for bank in this.banks {
+      if(bank[:code] == code || bank[:slug] == slug) {
+        throw("Bank Already Exist With This Code or Slug")
+      }
+    }
+    bank = [:name = toUpperCase(name), :code = code, :slug = slug, :ussd_code = ussd_code]
+    this.banks + bank
+    return banks
+
+
+      private banks = [
+        [:name = 'ACCESS BANK PLC', :code = 044, :slug = 'ACC', :ussd_code = '*901#'],
+        [:name = 'CITIBANK NIGERIA PLC', :code = 023, :slug = 'CBN', :ussd_code = null],
+        [:name = 'DIAMOND BANK PLC', :code = 063, :slug = 'DMB', :ussd_code = '*426#'],
+        [:name = 'ECOBANK NIGERIA PLC', :code = 064, :slug = 'EBN', :ussd_code = '*326#'],
+        [:name = 'FIDELITY BANK PLC', :code = 070, :slug = 'FDB', :ussd_code = '*770#'],
+        [:name = 'FIRST BANK NIGERIA LIMITED', :code = 011, :slug = 'FBN', :ussd_code = '*894#'],
+        [:name = 'FIRST CITY MONUMENT BANK PLC', :code = 214, :slug = 'FCB', :ussd_code = '*329#'],
+        [:name = 'GUARANTY TRUST BANK PLC', :code = 058, :slug = 'GTB', :ussd_code = '*737#'],
+        [:name = 'HERITAGE BANK PLC', :code = 030, :slug = 'HTB', :ussd_code = '*322#'],
+        [:name = 'KEY STONE BANK', :code = 082, :slug = 'KSB', :ussd_code = '*533#'],
+        [:name = 'MAINSTREET BANK', :code = 014, :slug = 'MSB', :ussd_code = null],
+        [:name = 'POLARIS BANK LIMITED', :code = 076, :slug = 'PLB', :ussd_code = null],
+        [:name = 'PROVIDUS BANK LIMITED', :code = 101, :slug = 'PVB', :ussd_code = null],
+        [:name = 'STANBIC IBTC BANK LTD', :code = 221, :slug = 'SIB', :ussd_code = '*909#'],
+        [:name = 'STANDARD CHARTERED BANK NIGERIA LTD', :code = 068, :slug = 'SCB', :ussd_code = null],
+        [:name = 'STERLING BANK PLC', :code = 232, :slug = 'STB', :ussd_code = '*822#'],
+        [:name = 'SUNTRUST BANK NIGERIA PLC', :code = 100, :slug = 'SBN', :ussd_code = null],
+        [:name = 'UNION BANK OF NIGERIA PLC', :code = 032, :slug = 'UBN', :ussd_code = '*826#'],
+        [:name = 'UNITED BANK FOR AFRICA PLC', :code = 033, :slug = 'UBA', :ussd_code = '*919#'],
+        [:name = 'UNITY BANK PLC', :code = 215, :slug = 'UNB', :ussd_code = '*7799#'], 
+        [:name = 'WEMA BANK PLC', :code = 035, :slug = 'WEM', :ussd_code = '*945#'],
+        [:name = 'ZENITH BANK PLC', :code = 057, :slug = 'ZIB', :ussd_code = '*966#']
+    ]
