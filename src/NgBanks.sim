@@ -2,8 +2,6 @@ call simple.debugging.Throw
 call simple.core.String
 call simple.core.List
 
-module NgBanks
-
 /*
  * @author -  Abdulazeez Abdulazeez Adeshina
 */
