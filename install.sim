@@ -1,0 +1,8 @@
+call simple.system.System
+call simple.system.SimpleX
+
+final installNgBanks = 'cp -r NgBanks ' +simpleModulesDir()+ ''
+final chmodNgBanks =  'chmod 777 ' +simpleModulesDir()+'/NgBanks'
+
+__exec(installNgBanks)
+__exec(chmodNgBanks)
