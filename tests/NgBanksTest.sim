@@ -1,5 +1,5 @@
 call simple.system.System
-call "../src/NgBanks.sim"
+call NgBanks.NgBanks
 
 block main()
   bank = new NgBanks
