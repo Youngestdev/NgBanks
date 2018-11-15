@@ -4,9 +4,11 @@
 
 ## Installation
 
-The installation guide will be available once the simple-lang [modular](https://github.com/simple-lang/simple/tree/master/environment/modular) is functional.
+Install this module by running this command:
 
-For now, `src/NgBanks.sim` has to be placed in the same directory as the child file.
+```bash
+simple install.sim
+```
 
 ## Usage
 
@@ -16,7 +18,7 @@ Next, import the module and create a new child inheriting the parent class that'
 
 // Import module
 
-call NgBanks
+call NgBanks.NgBanks
 
 block main()
   bank = new NgBanks
@@ -52,4 +54,4 @@ This small module is open contribution such as **adding other banks in** src/NgB
 
 ## TODO
 
-- Write Tests
+- [x] Write Tests
