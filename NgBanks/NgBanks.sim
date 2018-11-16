@@ -34,7 +34,7 @@ class NgBanks
       }
     }
     bank = [:name = toUpperCase(name), :code = code, :slug = slug, :ussd_code = ussd_code]
-    this.banks + bank
+    addToList(this.banks, bank)
     return banks
 
 
